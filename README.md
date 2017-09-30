@@ -9,7 +9,7 @@ Configure Capybara with **Chrome**, **Headless Chrome** or **Firefox** with *Scr
 
 Add the following code on your Gemfile and run bundle install:
 
-```
+```ruby
 group :test do
   gem 'capybara-box', require: false
 end
@@ -19,7 +19,7 @@ end
 
 Just require the lib **after** Capybara require and you done:
 
-```
+```ruby
 require 'capybara/rails'
 require 'capybara-box'
 
@@ -32,7 +32,7 @@ By default, `chrome` is de driver, but you can use `chrome`, `chrome_headless` o
 
 You can enable screenshot on failure and send it to S3.
 
-```
+```ruby
 CapybaraBox.configure(
   screenshot: {
     s3: {
@@ -46,7 +46,7 @@ CapybaraBox.configure(
 
 If you want enable it only on CI, use the `enabled` option:
 
-```
+```ruby
 CapybaraBox.configure(
   enabled: ENV['CI'],
 
@@ -58,18 +58,18 @@ CapybaraBox.configure(
 
 By default, Rack Session manipulation comes as battery, just use it.
 
-```
+```ruby
 page.set_rack_session key: 'value'
 ```
 
-```
+```ruby
 page.get_rack_session :key
 # 'value'
 ```
 
 You can disable this feature using the `session` option:
 
-```
+```ruby
 CapybaraBox.configure browser: :chrome, session: false
 ```
 
@@ -77,7 +77,7 @@ CapybaraBox.configure browser: :chrome, session: false
 
 By default some Switches are enabled for a better performance, you can add yours too:
 
-```
+```ruby
 capybara_box = CapybaraBox.configure
 capybara_box.add_argument '--incognito'
 ```
@@ -86,7 +86,7 @@ capybara_box.add_argument '--incognito'
 
 If you prefere, is possible override all of them:
 
-```
+```ruby
 CapybaraBox.configure arguments: ['--incognito']
 ```
 
@@ -96,7 +96,7 @@ Click [here](https://peter.sh/experiments/chromium-command-line-switches) to see
 
 By default some Preferences are enabled for a better performance, you can add yours too:
 
-```
+```ruby
 capybara_box = CapybaraBox.configure
 capybara_box.add_preference :credentials_enable_service, false
 ```
@@ -105,7 +105,7 @@ capybara_box.add_preference :credentials_enable_service, false
 
 If you prefere, is possible override all of them:
 
-```
+```ruby
 CapybaraBox.configure preferences: { credentials_enable_service: false }
 ```
 
@@ -117,7 +117,7 @@ By default some timeout configs are enabled only on CI env for a better performa
 It has this restrition because with timeout enabled, debugger cannot evaluate the variables values.
 You can override all of them too:
 
-```
+```ruby
 CapybaraBox.configure http_client_options: { read_timeout: 60 }
 ```
 
