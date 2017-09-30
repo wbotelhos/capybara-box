@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/wbotelhos/capybara-box.svg)](https://travis-ci.org/wbotelhos/capybara-box)
 [![Gem Version](https://badge.fury.io/rb/capybara-box.svg)](https://badge.fury.io/rb/capybara-box)
 
-Configure Capybara with **Chrome**, **Headless Chrome** or **Firefox** with *Screenshot* feature and *Session* without lost your mind with just one line.
+Configure Capybara with **Chrome**, **Headless Chrome** or **Firefox** with *Screenshot* feature and *Session* without losing your mind with just one line.
 
 ## install
 
@@ -17,7 +17,7 @@ end
 
 ## Usage
 
-Just require the lib **after** Capybara require and you done:
+Just require the lib **after** Capybara require and you're done:
 
 ```ruby
 require 'capybara/rails'
@@ -26,7 +26,7 @@ require 'capybara-box'
 CapybaraBox::Base.configure
 ```
 
-By default, `chrome` is de driver, but you can use `chrome`, `chrome_headless` or `firefox`.
+By default, `chrome` is the driver, but you can use `chrome`, `chrome_headless` or `firefox`.
 
 ## Version
 
@@ -94,7 +94,7 @@ capybara_box.add_argument '--incognito'
 
 ## Arguments
 
-If you prefere, is possible override all of them:
+If you prefere, it's possible to override all of them:
 
 ```ruby
 CapybaraBox.configure arguments: ['--incognito']
@@ -113,7 +113,7 @@ capybara_box.add_preference :credentials_enable_service, false
 
 ## Preferences
 
-If you prefere, is possible override all of them:
+If you prefere, it's possible to override all of them:
 
 ```ruby
 CapybaraBox.configure preferences: { credentials_enable_service: false }
