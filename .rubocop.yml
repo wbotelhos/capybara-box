@@ -1,0 +1,82 @@
+require: rubocop-rspec
+
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - spec/fixtures/**/*
+
+  TargetRubyVersion: 2.4
+
+Rails:
+  Enabled: true
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/SpaceBeforeComma:
+  Enabled: false
+
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
+
+Lint/Debugger:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Exclude:
+    - spec/**/*.rb
+
+RSpec/ExampleLength:
+  Max: 60
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  MaxLineLength: 120
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%i': '[]'
+    '%I': '[]'
+    '%r': ()
+    '%w': '[]'
+    '%W': '[]'
+
+Style/Documentation:
+  Enabled: false
+
+Style/Encoding:
+  Enabled: false
+
+Style/VariableNumber:
+  EnforcedStyle: snake_case
