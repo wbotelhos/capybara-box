@@ -28,6 +28,16 @@ CapybaraBox::Base.configure
 
 By default, `chrome` is de driver, but you can use `chrome`, `chrome_headless` or `firefox`.
 
+## Version
+
+If you do not want install the Chrome Driver on your CI, you can specify the version here and it will be installed automatically for you.
+
+```ruby
+CapybaraBox::Base.configure version: '2.32'
+```
+
+* This works just for Chrome, for now
+
 ## Screenshot
 
 You can enable screenshot on failure and send it to S3.
