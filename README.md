@@ -70,7 +70,7 @@ page.get_rack_session :key
 You can disable this feature using the `session` option:
 
 ```ruby
-CapybaraBox.configure browser: :chrome, session: false
+CapybaraBox.configure session: false
 ```
 
 ## Add Argument
