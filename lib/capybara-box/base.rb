@@ -135,11 +135,17 @@ module CapybaraBox
     def driver_options
       return @parameters[:driver_options] if @parameters[:driver_options]
 
-      {
+      opts = {
         browser:               browser,
         clear_local_storage:   true,
         clear_session_storage: true
       }
+
+      if log?
+        opts[:driver_opts] = { log_path: 'capybara-box.log' } if chrome_family?
+      end
+
+      opts
     end
 
     def firefox?
@@ -199,6 +205,12 @@ module CapybaraBox
     end
 
     private
+
+    def log?
+      return true if @parameters[:log].nil?
+
+      true? @parameters[:log]
+    end
 
     def true?(value)
       ['true', true].include? value
