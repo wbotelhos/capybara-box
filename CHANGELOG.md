@@ -1,3 +1,8 @@
+## v0.2.1
+
+- fixes
+  - `chrome_headless` was being registered with wrong name.
+
 ## v0.2.0
 
 - features
