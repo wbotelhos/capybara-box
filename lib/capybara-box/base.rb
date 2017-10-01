@@ -142,7 +142,7 @@ module CapybaraBox
       }
 
       if log?
-        opts[:driver_opts] = { log_path: 'capybara-box.log' } if chrome_family?
+        opts[:driver_opts] = { log_path: 'log/capybara-box.log' } if chrome_family?
       end
 
       opts

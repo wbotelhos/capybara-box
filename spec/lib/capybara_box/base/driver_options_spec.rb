@@ -11,7 +11,7 @@ RSpec.describe CapybaraBox::Base, '.register' do
         browser:               :chrome,
         clear_local_storage:   true,
         clear_session_storage: true,
-        driver_opts:           { log_path: 'capybara-box.log' }
+        driver_opts:           { log_path: 'log/capybara-box.log' }
       )
     end
 
@@ -32,7 +32,7 @@ RSpec.describe CapybaraBox::Base, '.register' do
         browser:               :chrome_headless,
         clear_local_storage:   true,
         clear_session_storage: true,
-        driver_opts:           { log_path: 'capybara-box.log' }
+        driver_opts:           { log_path: 'log/capybara-box.log' }
       )
     end
 
