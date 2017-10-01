@@ -139,6 +139,30 @@ You can override all driver options:
 CapybaraBox.configure driver_options: { clear_local_storage: true }
 ```
 
+## Log
+
+Log is writen at `log/capybara-box.log` as default.
+
+You can see each command executed. Time spent between them and debug some hanging command. :tada:
+
+```
+[15.479][INFO]: RESPONSE Navigate
+[15.482][INFO]: COMMAND ExecuteScript {
+   "args": [  ],
+   "script": "return $(\".gridy\").data(\"ready\")"
+}
+[15.483][INFO]: Waiting for pending navigations...
+[15.545][INFO]: Done waiting for pending navigations. Status: ok
+```
+
+To disable log on CI, for example, use the `log` options:
+
+```ruby
+CapybaraBox.configure log: ENV['CI'].nil?
+```
+
+* It works only for **chrome** and **chrome_headless**.
+
 ## Love it!
 
 Via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=X8HEP2878NDEG&item_name=capybara-box) or [Gratipay](https://gratipay.com/~wbotelhos). Thanks! (:
