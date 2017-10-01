@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/wbotelhos/capybara-box.svg)](https://travis-ci.org/wbotelhos/capybara-box)
 [![Gem Version](https://badge.fury.io/rb/capybara-box.svg)](https://badge.fury.io/rb/capybara-box)
 
-Configure Capybara with **Chrome**, **Headless Chrome** or **Firefox** with *Screenshot* feature and *Session* without lost your mind with just one line.
+Configure Capybara with **Chrome**, **Chrome Headless** or **Firefox** with *Screenshot* feature and *Session* without lost your mind with just one line.
 
 ## install
 
@@ -26,7 +26,7 @@ require 'capybara-box'
 CapybaraBox::Base.configure
 ```
 
-By default, `chrome` is de driver, but you can use `chrome`, `chrome_headless` or `firefox`.
+By default, `chrome` is the driver, but you can use `chrome_headless` and `firefox` too.
 
 ## Version
 
@@ -36,7 +36,7 @@ If you do not want install the Chrome Driver on your CI, you can specify the ver
 CapybaraBox::Base.configure version: '2.32'
 ```
 
-* This works just for Chrome, for now
+* This works just for `chrome` and `chrome_headless`, for now
 
 ## Screenshot
 
@@ -89,6 +89,7 @@ By default some Switches are enabled for a better performance, you can add yours
 
 ```ruby
 capybara_box = CapybaraBox.configure
+
 capybara_box.add_argument '--incognito'
 ```
 
@@ -108,6 +109,7 @@ By default some Preferences are enabled for a better performance, you can add yo
 
 ```ruby
 capybara_box = CapybaraBox.configure
+
 capybara_box.add_preference :credentials_enable_service, false
 ```
 
