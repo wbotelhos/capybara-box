@@ -66,12 +66,24 @@ RSpec.describe CapybaraBox::Base, '#create' do
   context 'when :browser is given' do
     subject { described_class.new parameters }
 
-    let!(:parameters) { { browser: :firefox } }
+    context 'as firefox' do
+      let!(:parameters) { { browser: :firefox } }
 
-    it 'registers the given browser' do
-      expect(subject).to receive(:register).with :firefox
+      it 'registers the given browser' do
+        expect(subject).to receive(:register).with :firefox
 
-      subject.create
+        subject.create
+      end
+    end
+
+    context 'as chrome_headless' do
+      let!(:parameters) { { browser: :chrome_headless } }
+
+      it 'registers the given browser' do
+        expect(subject).to receive(:register).with :chrome_headless
+
+        subject.create
+      end
     end
   end
 end

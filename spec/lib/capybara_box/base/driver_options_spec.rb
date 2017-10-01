@@ -29,7 +29,7 @@ RSpec.describe CapybaraBox::Base, '.register' do
 
     it 'uses the default driver options' do
       expect(subject.driver_options).to eq(
-        browser:               :chrome_headless,
+        browser:               :chrome,
         clear_local_storage:   true,
         clear_session_storage: true,
         driver_opts:           { log_path: 'log/capybara-box.log' }

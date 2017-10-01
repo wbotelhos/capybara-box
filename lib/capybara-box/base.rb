@@ -60,10 +60,6 @@ module CapybaraBox
       ]
     end
 
-    def browser
-      @browser ||= chrome_family? ? :chrome : @browser
-    end
-
     def chrome?
       @browser == :chrome
     end
@@ -77,7 +73,7 @@ module CapybaraBox
     end
 
     def configure
-      Capybara.javascript_driver     = browser
+      Capybara.javascript_driver     = @browser
       Capybara.default_max_wait_time = @max_wait_time if @max_wait_time
     end
 
@@ -106,7 +102,7 @@ module CapybaraBox
         Capybara::Screenshot.s3_configuration = screenshot_s3_config
       end
 
-      Capybara::Screenshot.register_driver(browser) do |driver, path|
+      Capybara::Screenshot.register_driver(@browser) do |driver, path|
         driver.browser.save_screenshot path
       end
     end
@@ -119,7 +115,7 @@ module CapybaraBox
       apply_version @parameters[:version]   if version?
       configure_screenshot                  if @parameters[:screenshot]
 
-      register browser
+      register @browser
 
       configure
     end
@@ -136,7 +132,7 @@ module CapybaraBox
       return @parameters[:driver_options] if @parameters[:driver_options]
 
       opts = {
-        browser:               browser,
+        browser:               chrome_family? ? :chrome : @browser,
         clear_local_storage:   true,
         clear_session_storage: true
       }
