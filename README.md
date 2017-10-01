@@ -139,8 +139,6 @@ You can override all driver options:
 CapybaraBox.configure driver_options: { clear_local_storage: true }
 ```
 
-You can check [Chrome](https://sites.google.com/a/chromium.org/chromedriver/home) and [Firefox](http://preferential.mozdev.org/preferences.html).
-
 ## Love it!
 
 Via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=X8HEP2878NDEG&item_name=capybara-box) or [Gratipay](https://gratipay.com/~wbotelhos). Thanks! (:
