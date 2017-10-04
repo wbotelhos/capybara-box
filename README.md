@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/wbotelhos/capybara-box.svg)](https://travis-ci.org/wbotelhos/capybara-box)
 [![Gem Version](https://badge.fury.io/rb/capybara-box.svg)](https://badge.fury.io/rb/capybara-box)
 
-Configure Capybara with **Chrome**, **Chrome Headless** or **Firefox** with *Screenshot* feature and *Session* without lost your mind with just one line.
+Configure Capybara with **Chrome**, **Chrome Headless** or **Firefox** with *Screenshot* feature and *Session* without losing your mind with just one line.
 
 ## install
 
