@@ -30,7 +30,14 @@ By default, `chrome` is the driver, but you can use `chrome_headless` and `firef
 
 ## Version
 
-If you do not want install the Chrome Driver on your CI, you can specify the version here and it will be installed automatically for you.
+You can use a embbeded driver via `chromedriver-helper` if you do not want to install the `chromedriver` by yourself.
+First require `chromedriver-helper` on your `spec_helper.rb` file:
+
+```ruby
+require 'chromedriver-helper'
+```
+
+And than specify the version of the driver you want:
 
 ```ruby
 CapybaraBox::Base.configure version: '2.32'

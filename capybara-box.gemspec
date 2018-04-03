@@ -21,12 +21,12 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'capybara-screenshot'
   spec.add_dependency 'capybara'
-  spec.add_dependency 'chromedriver-helper'
   spec.add_dependency 'rack_session_access'
   spec.add_dependency 'selenium-webdriver'
 
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'rubocop'
-  spec.add_development_dependency 'rubocop-rspec'
+  spec.add_development_dependency 'chromedriver-helper'
   spec.add_development_dependency 'pry-byebug'
+  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'rubocop-rspec'
+  spec.add_development_dependency 'rubocop'
 end
