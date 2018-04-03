@@ -1,3 +1,8 @@
+## v0.3.0
+
+- Drops Rack Session Access internal require;
+- Makes `chromedriver-helper` optional.
+
 ## v0.2.1
 
 - fixes
