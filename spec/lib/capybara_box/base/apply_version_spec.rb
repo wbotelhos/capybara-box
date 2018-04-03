@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+require 'chromedriver/helper'
+
 RSpec.describe CapybaraBox::Base, '.apply_version' do
   subject { described_class.new parameters }
 

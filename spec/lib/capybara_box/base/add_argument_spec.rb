@@ -9,7 +9,7 @@ RSpec.describe CapybaraBox::Base, '.add_argument' do
     it 'adds the argument' do
       subject.add_argument '--argument'
 
-      expect(subject.options.args).to eq ['--argument']
+      expect(subject.options.args).to eq Set['--argument']
     end
   end
 
@@ -19,7 +19,7 @@ RSpec.describe CapybaraBox::Base, '.add_argument' do
     it 'adds the argument' do
       subject.add_argument '--argument'
 
-      expect(subject.options.args).to eq ['--argument']
+      expect(subject.options.args).to eq Set['--argument']
     end
   end
 
