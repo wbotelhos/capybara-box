@@ -71,25 +71,6 @@ CapybaraBox.configure(
 )
 ```
 
-## Session
-
-By default, Rack Session manipulation comes as battery, just use it.
-
-```ruby
-page.set_rack_session key: 'value'
-```
-
-```ruby
-page.get_rack_session :key
-# 'value'
-```
-
-You can disable this feature using the `session` option:
-
-```ruby
-CapybaraBox.configure session: false
-```
-
 ## Add Argument
 
 By default some Switches are enabled for a better performance, you can add yours too:

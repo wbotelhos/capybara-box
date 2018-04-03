@@ -21,7 +21,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'capybara-screenshot'
   spec.add_dependency 'capybara'
-  spec.add_dependency 'rack_session_access'
   spec.add_dependency 'selenium-webdriver'
 
   spec.add_development_dependency 'chromedriver-helper'

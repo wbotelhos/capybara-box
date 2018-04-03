@@ -8,8 +8,6 @@ module CapybaraBox
       @browser       = parameters[:browser] || :chrome
       @max_wait_time = parameters[:max_wait_time]
       @parameters    = parameters
-
-      requires
     end
 
     def add_argument(value)
@@ -210,10 +208,6 @@ module CapybaraBox
 
     def true?(value)
       ['true', true].include? value
-    end
-
-    def requires
-      require 'rack_session_access/capybara' unless @parameters[:session] == false
     end
 
     def screenshot_s3_config

@@ -4,7 +4,6 @@ PATH
     capybara-box (0.2.1)
       capybara
       capybara-screenshot
-      rack_session_access
       selenium-webdriver
 
 GEM
@@ -15,7 +14,6 @@ GEM
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     ast (2.4.0)
-    builder (3.2.3)
     byebug (10.0.2)
     capybara (2.18.0)
       addressable
@@ -57,9 +55,6 @@ GEM
     rack (2.0.4)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
-    rack_session_access (0.1.1)
-      builder (>= 2.0.0)
-      rack (>= 1.0.0)
     rainbow (3.0.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
