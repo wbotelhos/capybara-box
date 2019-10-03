@@ -47,7 +47,17 @@ end
 RSpec.describe CapybaraBox::Base, '.driver' do
   subject { described_class.new parameters }
 
-  before { ENV['CI'] = 'false' }
+  let!(:args) { { log_path: 'log/capybara-box.log', verbose: true } }
+  let!(:service) { instance_double 'Selenium::WebDriver::Service' }
+  let!(:old_ci) { ENV['CI'] }
+
+  before do
+    ENV['CI'] = 'false'
+
+    allow(Selenium::WebDriver::Service).to receive(:chrome).with(args: args).and_return service
+  end
+
+  after { ENV['CI'] = old_ci  }
 
   context 'when is chrome' do
     let!(:parameters) { { browser: :chrome } }

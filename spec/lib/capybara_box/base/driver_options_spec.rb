@@ -3,6 +3,13 @@ require 'rails_helper'
 RSpec.describe CapybaraBox::Base, '.register' do
   subject { described_class.new parameters }
 
+  let!(:args) { { log_path: 'log/capybara-box.log', verbose: true } }
+  let!(:service) { instance_double 'Selenium::WebDriver::Service' }
+
+  before do
+    allow(Selenium::WebDriver::Service).to receive(:chrome).with(args: args).and_return service
+  end
+
   context 'when is chrome' do
     let!(:parameters) { { browser: :chrome } }
 
@@ -11,7 +18,7 @@ RSpec.describe CapybaraBox::Base, '.register' do
         browser:               :chrome,
         clear_local_storage:   true,
         clear_session_storage: true,
-        driver_opts:           { log_path: 'log/capybara-box.log' }
+        service:               service
       )
     end
 
@@ -32,7 +39,7 @@ RSpec.describe CapybaraBox::Base, '.register' do
         browser:               :chrome,
         clear_local_storage:   true,
         clear_session_storage: true,
-        driver_opts:           { log_path: 'log/capybara-box.log' }
+        service:               service
       )
     end
 
