@@ -1,3 +1,7 @@
+## v0.4.0
+
+- Updates Selenium WebDriver deprecated message;
+
 ## v0.3.0
 
 - Drops Rack Session Access internal require;
