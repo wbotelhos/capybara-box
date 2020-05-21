@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    capybara-box (0.4.0)
+    capybara-box (1.0.0)
       capybara
       capybara-screenshot
       selenium-webdriver
