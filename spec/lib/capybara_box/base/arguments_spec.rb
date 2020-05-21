@@ -16,6 +16,7 @@ RSpec.describe CapybaraBox::Base, '.arguments' do
       --disable-password-separated-signin-flow
       --disable-popup-blocking
       --disable-save-password-bubble
+      --disable-site-isolation-trials
       --disable-translate
       --incognito
       --mute-audio
