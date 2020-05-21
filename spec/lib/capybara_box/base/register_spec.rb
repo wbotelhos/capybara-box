@@ -3,17 +3,21 @@
 require 'rails_helper'
 
 RSpec.describe CapybaraBox::Base, '.register' do
-  subject { described_class.new }
+  subject(:base) { described_class.new }
 
-  let!(:app) { double }
+  let!(:app) { double('app') }
 
-  before do
-    allow(Capybara).to receive(:register_driver).with(:name).and_yield app
-  end
+  before { allow(Capybara).to receive(:register_driver).with(:name).and_yield(app) }
 
   it 'register the driver with given name' do
-    expect(subject).to receive(:driver).with app
+    expect(base).to receive(:driver).with app
 
-    subject.register :name
+    base.register(:name)
+  end
+
+  it 'converts name to symbol' do
+    expect(base).to receive(:driver).with app
+
+    base.register('name')
   end
 end

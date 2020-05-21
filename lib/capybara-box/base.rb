@@ -160,7 +160,7 @@ module CapybaraBox
     end
 
     def register(name)
-      Capybara.register_driver(name) { |app| driver(app) }
+      Capybara.register_driver(name.to_sym) { |app| driver(app) }
     end
 
     def self.configure(parameters)
