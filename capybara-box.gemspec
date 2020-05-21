@@ -3,16 +3,17 @@
 require_relative 'lib/capybara-box/version'
 
 Gem::Specification.new do |spec|
-  spec.author      = 'Washington Botelho'
-  spec.description = 'A Tool Box for Capybara.'
-  spec.email       = 'wbotelhos@gmail.com'
-  spec.files       = Dir['lib/**/*'] + %w[CHANGELOG.md LICENSE README.md]
-  spec.homepage    = 'https://github.com/wbotelhos/capybara-box'
-  spec.license     = 'MIT'
-  spec.name        = 'capybara-box'
-  spec.platform    = Gem::Platform::RUBY
-  spec.summary     = 'A Tool Box for Capybara.'
-  spec.version     = CapybaraBox::VERSION
+  spec.author           = 'Washington Botelho'
+  spec.description      = 'A Tool Box for Capybara.'
+  spec.email            = 'wbotelhos@gmail.com'
+  spec.extra_rdoc_files = Dir['CHANGELOG.md', 'LICENSE', 'README.md']
+  spec.files            = Dir['lib/**/*']
+  spec.homepage         = 'https://github.com/wbotelhos/capybara-box'
+  spec.license          = 'MIT'
+  spec.name             = 'capybara-box'
+  spec.platform         = Gem::Platform::RUBY
+  spec.summary          = 'A Tool Box for Capybara.'
+  spec.version          = CapybaraBox::VERSION
 
   spec.add_dependency 'capybara-screenshot'
   spec.add_dependency 'capybara'
