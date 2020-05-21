@@ -135,13 +135,11 @@ module CapybaraBox
         clear_session_storage: true
       }
 
-      if log?
-        if chrome_family?
-          opts[:service] = Selenium::WebDriver::Service.chrome(args: {
-            log_path: 'log/capybara-box.log',
-            verbose: true,
-          })
-        end
+      if log? && chrome_family?
+        opts[:service] = Selenium::WebDriver::Service.chrome(args: {
+          log_path: 'log/capybara-box.log',
+          verbose:  true,
+        })
       end
 
       opts
