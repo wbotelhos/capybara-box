@@ -17,7 +17,7 @@ RSpec.describe CapybaraBox::Base, '.register' do
 
     it 'uses the default driver options' do
       expect(base.driver_options).to eq(
-        browser: :selenium_chrome,
+        browser: :chrome,
         clear_local_storage: true,
         clear_session_storage: true,
         service: service
@@ -38,7 +38,7 @@ RSpec.describe CapybaraBox::Base, '.register' do
 
     it 'uses the default driver options' do
       expect(base.driver_options).to eq(
-        browser: :selenium_chrome,
+        browser: :chrome,
         clear_local_storage: true,
         clear_session_storage: true,
         service: service

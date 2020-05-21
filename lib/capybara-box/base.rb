@@ -111,7 +111,7 @@ module CapybaraBox
       return @parameters[:driver_options] if @parameters[:driver_options]
 
       opts = {
-        browser: chrome_family? ? :selenium_chrome : @browser,
+        browser: chrome_family? ? :chrome : @browser,
         clear_local_storage: true,
         clear_session_storage: true,
       }
