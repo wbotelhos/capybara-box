@@ -7,13 +7,13 @@ RSpec.describe CapybaraBox::Base, '.configure_screenshot' do
   context 'when enabled tag is false' do
     let!(:parameters) { { screenshot: { enabled: false } } }
 
-    specify { expect(subject.configure_screenshot).to eq false }
+    it { expect(subject.configure_screenshot).to eq false }
   end
 
   context 'when enabled tag is "false"' do
     let!(:parameters) { { screenshot: { enabled: 'false' } } }
 
-    specify { expect(subject.configure_screenshot).to eq false }
+    it { expect(subject.configure_screenshot).to eq false }
   end
 
   context 'when enabled' do

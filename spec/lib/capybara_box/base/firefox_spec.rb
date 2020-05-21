@@ -6,12 +6,12 @@ RSpec.describe CapybaraBox::Base, '.firefox?' do
   context 'when :browser is firefox' do
     let!(:parameters) { { browser: :firefox } }
 
-    specify { expect(subject).to be_firefox }
+    it { expect(subject).to be_firefox }
   end
 
   context 'when :browser is not firefox' do
     let!(:parameters) { { browser: :not_firefox } }
 
-    specify { expect(subject).not_to be_firefox }
+    it { expect(subject).not_to be_firefox }
   end
 end

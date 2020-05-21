@@ -6,12 +6,12 @@ RSpec.describe CapybaraBox::Base, '.chrome?' do
   context 'when :browser is chrome' do
     let!(:parameters) { { browser: :chrome } }
 
-    specify { expect(subject).to be_chrome }
+    it { expect(subject).to be_chrome }
   end
 
   context 'when :browser is not chrome' do
     let!(:parameters) { { browser: :not_chrome } }
 
-    specify { expect(subject).not_to be_chrome }
+    it { expect(subject).not_to be_chrome }
   end
 end
