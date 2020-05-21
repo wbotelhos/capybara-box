@@ -61,8 +61,6 @@ And then enable S3 feature:
 CapybaraBox.configure(screenshot: { enabled: true, s3: true })
 ```
 
-If you want enable it only on CI, use the `enabled` option:
-
 ## Add Argument
 
 By default some Switches are enabled for a better performance, you can add yours too:
