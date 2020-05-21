@@ -1,3 +1,8 @@
+## v1.0.1
+
+- Fixes
+  - Registers driver name as symbol;
+
 ## v1.0.0
 
 - Updates
