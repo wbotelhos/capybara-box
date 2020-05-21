@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.description      = 'A Tool Box for Capybara.'
   spec.email            = 'wbotelhos@gmail.com'
   spec.extra_rdoc_files = Dir['CHANGELOG.md', 'LICENSE', 'README.md']
-  spec.files            = Dir['lib/**/*']
+  spec.files            = `git ls-files lib`.split("\n")
   spec.homepage         = 'https://github.com/wbotelhos/capybara-box'
   spec.license          = 'MIT'
   spec.name             = 'capybara-box'
