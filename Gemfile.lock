@@ -5,6 +5,7 @@ PATH
       capybara
       capybara-screenshot
       selenium-webdriver
+      webdrivers
 
 GEM
   remote: https://rubygems.org/
@@ -98,7 +99,6 @@ DEPENDENCIES
   rspec
   rubocop-performance
   rubocop-rspec
-  webdrivers
 
 BUNDLED WITH
    2.1.4

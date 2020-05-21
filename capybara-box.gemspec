@@ -19,14 +19,14 @@ Gem::Specification.new do |spec|
   spec.test_files  = Dir['spec/**/*']
   spec.version     = CapybaraBox::VERSION
 
-  spec.add_dependency 'capybara'
   spec.add_dependency 'capybara-screenshot'
+  spec.add_dependency 'capybara'
   spec.add_dependency 'selenium-webdriver'
+  spec.add_dependency 'webdrivers'
 
   spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rubocop-performance'
   spec.add_development_dependency 'rubocop-rspec'
-  spec.add_development_dependency 'webdrivers'
 end
