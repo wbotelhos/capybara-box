@@ -113,7 +113,7 @@ module CapybaraBox
       apply_version @parameters[:version]   if version?
       configure_screenshot                  if @parameters[:screenshot]
 
-      register @browser
+      register(@browser)
 
       configure
     end
