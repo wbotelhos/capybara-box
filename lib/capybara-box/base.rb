@@ -32,7 +32,8 @@ module CapybaraBox
     def apply_version(version)
       if chrome_family?
         Webdrivers::Chromedriver.required_version = version
-      elsif Webdrivers::Geckodriver.required_version = version
+      else
+        Webdrivers::Geckodriver.required_version = version
       end
     end
 
