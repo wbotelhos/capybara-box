@@ -30,6 +30,6 @@ RSpec.describe CapybaraBox::Base, '.options' do
   context 'when is firefox' do
     let!(:parameters) { { browser: :firefox } }
 
-    it { expect(subject.options).to be_nil }
+    it { expect(subject.options).to eq nil }
   end
 end

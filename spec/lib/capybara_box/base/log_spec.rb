@@ -7,7 +7,7 @@ RSpec.shared_context 'log_disabled' do
     before { parameters[:browser] = :selenium_chrome }
 
     it 'does not includes log config' do
-      expect(subject.driver_options[:driver_opts]).to be_nil
+      expect(subject.driver_options[:driver_opts]).to eq nil
     end
   end
 
@@ -15,7 +15,7 @@ RSpec.shared_context 'log_disabled' do
     before { parameters[:browser] = :selenium_chrome_headless }
 
     it 'does not includes log config' do
-      expect(subject.driver_options[:driver_opts]).to be_nil
+      expect(subject.driver_options[:driver_opts]).to eq nil
     end
   end
 
@@ -23,7 +23,7 @@ RSpec.shared_context 'log_disabled' do
     before { parameters[:browser] = :firefox }
 
     it 'does not includes log config' do
-      expect(subject.driver_options[:driver_opts]).to be_nil
+      expect(subject.driver_options[:driver_opts]).to eq nil
     end
   end
 end

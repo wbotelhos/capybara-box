@@ -39,7 +39,7 @@ RSpec.describe CapybaraBox::Base, '.apply_preferences' do
     it 'does not applies options' do
       subject.apply_preferences
 
-      expect(subject.options).to be_nil
+      expect(subject.options).to eq nil
     end
   end
 end

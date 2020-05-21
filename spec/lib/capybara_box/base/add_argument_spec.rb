@@ -31,7 +31,7 @@ RSpec.describe CapybaraBox::Base, '.add_argument' do
     it 'does not applies options' do
       base.add_argument '--argument'
 
-      expect(base.options).to be_nil
+      expect(base.options).to eq nil
     end
   end
 end
