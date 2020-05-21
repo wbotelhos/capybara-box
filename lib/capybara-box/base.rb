@@ -196,11 +196,7 @@ module CapybaraBox
     end
 
     def self.configure(parameters)
-      box = new(parameters)
-
-      box.create
-
-      box
+      new(parameters).tap(&:create)
     end
 
     private
