@@ -23,10 +23,10 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'capybara'
   spec.add_dependency 'selenium-webdriver'
 
-  spec.add_development_dependency 'chromedriver-helper'
   spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rubocop-performance'
   spec.add_development_dependency 'rubocop-rspec'
+  spec.add_development_dependency 'webdrivers'
 end
