@@ -5,7 +5,7 @@ module CapybaraBox
 
   class Base
     def initialize(parameters = {})
-      @browser       = parameters[:browser] || :chrome
+      @browser       = parameters.fetch(:browser) { :selenium_chrome }
       @max_wait_time = parameters[:max_wait_time]
       @parameters    = parameters
     end
