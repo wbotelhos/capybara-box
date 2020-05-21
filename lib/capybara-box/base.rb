@@ -97,8 +97,11 @@ module CapybaraBox
     end
 
     def driver(app)
-      opts               = {}
-      opts[:options]     = options if chrome_family?
+      opts           = {}
+      opts[:options] = options if chrome_family?
+
+      Capybara::Selenium::Driver.load_selenium
+
       opts[:http_client] = http_client if ::CapybaraBox::Helper.true?(ENV['CI'])
 
       Capybara::Selenium::Driver.new(app, opts.merge(driver_options))

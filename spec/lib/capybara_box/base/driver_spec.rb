@@ -7,6 +7,7 @@ RSpec.shared_context 'driver_with_options' do
     options           = subject.driver_options
     options[:options] = subject.options
 
+    expect(Capybara::Selenium::Driver).to receive(:load_selenium)
     expect(Capybara::Selenium::Driver).to receive(:new).with(:app, options)
 
     subject.driver :app
@@ -17,6 +18,7 @@ RSpec.shared_context 'driver_with_no_options' do
   it 'creates the selenium driver with no default options' do
     options = subject.driver_options
 
+    expect(Capybara::Selenium::Driver).to receive(:load_selenium)
     expect(Capybara::Selenium::Driver).to receive(:new).with(:app, options)
 
     subject.driver :app
@@ -29,6 +31,7 @@ RSpec.shared_context 'driver_with_options_and_http_client' do
     options[:options]     = subject.options
     options[:http_client] = subject.http_client
 
+    expect(Capybara::Selenium::Driver).to receive(:load_selenium)
     expect(Capybara::Selenium::Driver).to receive(:new).with(:app, options)
 
     subject.driver :app
@@ -40,6 +43,7 @@ RSpec.shared_context 'driver_with_not_options_but_with_http_client' do
     options               = subject.driver_options
     options[:http_client] = subject.http_client
 
+    expect(Capybara::Selenium::Driver).to receive(:load_selenium)
     expect(Capybara::Selenium::Driver).to receive(:new).with(:app, options)
 
     subject.driver :app
@@ -47,7 +51,7 @@ RSpec.shared_context 'driver_with_not_options_but_with_http_client' do
 end
 
 RSpec.describe CapybaraBox::Base, '.driver' do
-  subject { described_class.new parameters }
+  subject(:base) { described_class.new parameters }
 
   let!(:args) { { log_path: 'log/capybara-box.log', verbose: true } }
   let!(:service) { instance_double 'Selenium::WebDriver::Service' }
