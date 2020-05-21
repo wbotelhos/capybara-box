@@ -16,7 +16,6 @@ Gem::Specification.new do |spec|
   spec.name        = 'capybara-box'
   spec.platform    = Gem::Platform::RUBY
   spec.summary     = 'A Tool Box for Capybara.'
-  spec.test_files  = Dir['spec/**/*']
   spec.version     = CapybaraBox::VERSION
 
   spec.add_dependency 'capybara-screenshot'
