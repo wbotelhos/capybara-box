@@ -76,9 +76,9 @@ module CapybaraBox
 
     def apply_bin_path(path)
       if firefox?
-        Selenium::WebDriver::Firefox::Binary.path = path
+        ::Selenium::WebDriver::Firefox::Binary.path = path
 
-        Selenium::WebDriver::Firefox::Binary.path
+        ::Selenium::WebDriver::Firefox::Binary.path
       end
     end
 
@@ -114,7 +114,9 @@ module CapybaraBox
       }
 
       if log? && chrome_family?
-        opts[:service] = Selenium::WebDriver::Service.chrome(args: { log_path: 'log/capybara-box.log', verbose: true })
+        opts[:service] = ::Selenium::WebDriver::Service.chrome(
+          args: { log_path: 'log/capybara-box.log', verbose: true }
+        )
       end
 
       opts
@@ -134,11 +136,11 @@ module CapybaraBox
     end
 
     def http_client
-      @http_client ||= Selenium::WebDriver::Remote::Http::Default.new(**http_client_options)
+      @http_client ||= ::Selenium::WebDriver::Remote::Http::Default.new(**http_client_options)
     end
 
     def options
-      @options ||= Selenium::WebDriver::Chrome::Options.new if chrome_family?
+      @options ||= ::Selenium::WebDriver::Chrome::Options.new if chrome_family?
     end
 
     def preferences
