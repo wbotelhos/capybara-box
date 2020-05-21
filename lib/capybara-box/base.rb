@@ -11,21 +11,21 @@ module CapybaraBox
     end
 
     def add_argument(value)
-      options.add_argument value unless options.nil?
+      options.add_argument(value) if options
     end
 
     def add_preference(key, value)
-      options.add_preference key, value unless options.nil?
+      options.add_preference(key, value) if options
     end
 
     def apply_arguments
-      arguments.each { |argument| add_argument argument }
+      arguments.each { |argument| add_argument(argument) }
 
-      add_argument '--headless' if chrome_headless?
+      add_argument('--headless') if chrome_headless?
     end
 
     def apply_preferences
-      preferences.each { |key, value| add_preference key, value }
+      preferences.each { |key, value| add_preference(key, value) }
     end
 
     def apply_version(version)
