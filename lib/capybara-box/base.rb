@@ -2,9 +2,6 @@
 
 module CapybaraBox
   class Base
-    require 'selenium/webdriver'
-    require 'webdrivers'
-
     def initialize(parameters = {})
       @browser       = parameters.fetch(:browser) { :selenium_chrome }
       @max_wait_time = parameters[:max_wait_time]
