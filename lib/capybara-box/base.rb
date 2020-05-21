@@ -115,11 +115,7 @@ module CapybaraBox
       }
 
       if log? && chrome_family?
-        opts[:service] = Selenium::WebDriver::Service.chrome(args: {
-                                                               log_path: 'log/capybara-box.log',
-                                                               verbose: true,
-                                                             }
-                                                            )
+        opts[:service] = Selenium::WebDriver::Service.chrome(args: { log_path: 'log/capybara-box.log', verbose: true })
       end
 
       opts
