@@ -1,27 +1,27 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-require 'chromedriver/helper'
-
 RSpec.describe CapybaraBox::Base, '.apply_version' do
-  subject { described_class.new parameters }
+  subject(:base) { described_class.new parameters }
 
   context 'when browser is chrome' do
-    let!(:parameters) { { browser: :chrome } }
+    let!(:parameters) { { browser: :selenium_chrome } }
 
     it 'is used' do
-      subject.apply_version '2.31'
+      base.apply_version('2.31')
 
-      expect(subject.version).to eq '2.31'
+      expect(Webdrivers::Chromedriver.required_version.version).to eq '2.31'
     end
   end
 
   context 'when browser is chrome headless' do
-    let!(:parameters) { { browser: :chrome_headless } }
+    let!(:parameters) { { browser: :selenium_chrome_headless } }
 
     it 'is used' do
-      subject.apply_version '2.31'
+      base.apply_version('2.31')
 
-      expect(subject.version).to eq '2.31'
+      expect(Webdrivers::Chromedriver.required_version.version).to eq '2.31'
     end
   end
 
@@ -29,9 +29,9 @@ RSpec.describe CapybaraBox::Base, '.apply_version' do
     let!(:parameters) { { browser: :firefox } }
 
     it 'does not applies options' do
-      subject.apply_preferences
+      base.apply_version('2.31')
 
-      expect(subject.options).to be_nil
+      expect(Webdrivers::Geckodriver.required_version.version).to eq '2.31'
     end
   end
 end

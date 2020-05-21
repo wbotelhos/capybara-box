@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.shared_context 'driver_with_options' do
@@ -57,10 +59,10 @@ RSpec.describe CapybaraBox::Base, '.driver' do
     allow(Selenium::WebDriver::Service).to receive(:chrome).with(args: args).and_return service
   end
 
-  after { ENV['CI'] = old_ci  }
+  after { ENV['CI'] = old_ci }
 
   context 'when is chrome' do
-    let!(:parameters) { { browser: :chrome } }
+    let!(:parameters) { { browser: :selenium_chrome } }
 
     it_behaves_like 'driver_with_options'
 
@@ -72,7 +74,7 @@ RSpec.describe CapybaraBox::Base, '.driver' do
   end
 
   context 'when is chrome headless' do
-    let!(:parameters) { { browser: :chrome_headless } }
+    let!(:parameters) { { browser: :selenium_chrome_headless } }
 
     it_behaves_like 'driver_with_options'
 

@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CapybaraBox::Base, '.add_preference' do
   subject { described_class.new parameters }
 
   context 'when is chrome' do
-    let!(:parameters) { { browser: :chrome } }
+    let!(:parameters) { { browser: :selenium_chrome } }
 
     it 'adds the argument' do
       subject.add_preference :key, :value
@@ -14,7 +16,7 @@ RSpec.describe CapybaraBox::Base, '.add_preference' do
   end
 
   context 'when is chrome headless' do
-    let!(:parameters) { { browser: :chrome_headless } }
+    let!(:parameters) { { browser: :selenium_chrome_headless } }
 
     it 'adds the argument' do
       subject.add_preference :key, :value

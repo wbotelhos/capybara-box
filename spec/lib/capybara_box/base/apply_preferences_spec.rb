@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CapybaraBox::Base, '.apply_preferences' do
   subject { described_class.new parameters }
 
   before do
-    allow(subject).to receive(:preferences) { { key: :value } }
+    allow(subject).to receive(:preferences).and_return({ key: :value })
   end
 
   context 'when is chrome' do
-    let!(:parameters) { { browser: :chrome } }
+    let!(:parameters) { { browser: :selenium_chrome } }
 
     it 'applies' do
       expect(subject.options.prefs).to eq({})
@@ -20,7 +22,7 @@ RSpec.describe CapybaraBox::Base, '.apply_preferences' do
   end
 
   context 'when is chrome headless' do
-    let!(:parameters) { { browser: :chrome_headless } }
+    let!(:parameters) { { browser: :selenium_chrome_headless } }
 
     it 'applies' do
       expect(subject.options.prefs).to eq({})

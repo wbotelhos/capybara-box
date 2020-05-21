@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CapybaraBox::Base, '.register' do
-  subject { described_class.new parameters }
+  subject(:base) { described_class.new parameters }
 
   let!(:args) { { log_path: 'log/capybara-box.log', verbose: true } }
   let!(:service) { instance_double 'Selenium::WebDriver::Service' }
@@ -11,14 +13,14 @@ RSpec.describe CapybaraBox::Base, '.register' do
   end
 
   context 'when is chrome' do
-    let!(:parameters) { { browser: :chrome } }
+    let!(:parameters) { { browser: :selenium_chrome } }
 
     it 'uses the default driver options' do
-      expect(subject.driver_options).to eq(
-        browser:               :chrome,
-        clear_local_storage:   true,
+      expect(base.driver_options).to eq(
+        browser: :selenium_chrome,
+        clear_local_storage: true,
         clear_session_storage: true,
-        service:               service
+        service: service
       )
     end
 
@@ -26,20 +28,20 @@ RSpec.describe CapybaraBox::Base, '.register' do
       before { parameters[:driver_options] = { key: :value } }
 
       it 'is used' do
-        expect(subject.driver_options).to eq(key: :value)
+        expect(base.driver_options).to eq(key: :value)
       end
     end
   end
 
   context 'when is chrome headless' do
-    let!(:parameters) { { browser: :chrome_headless } }
+    let!(:parameters) { { browser: :selenium_chrome_headless } }
 
     it 'uses the default driver options' do
-      expect(subject.driver_options).to eq(
-        browser:               :chrome,
-        clear_local_storage:   true,
+      expect(base.driver_options).to eq(
+        browser: :selenium_chrome,
+        clear_local_storage: true,
         clear_session_storage: true,
-        service:               service
+        service: service
       )
     end
 
@@ -47,7 +49,7 @@ RSpec.describe CapybaraBox::Base, '.register' do
       before { parameters[:driver_options] = { key: :value } }
 
       it 'is used' do
-        expect(subject.driver_options).to eq(key: :value)
+        expect(base.driver_options).to eq(key: :value)
       end
     end
   end
@@ -56,9 +58,9 @@ RSpec.describe CapybaraBox::Base, '.register' do
     let!(:parameters) { { browser: :firefox } }
 
     it 'uses the default driver options' do
-      expect(subject.driver_options).to eq(
-        browser:               :firefox,
-        clear_local_storage:   true,
+      expect(base.driver_options).to eq(
+        browser: :firefox,
+        clear_local_storage: true,
         clear_session_storage: true
       )
     end
@@ -67,7 +69,7 @@ RSpec.describe CapybaraBox::Base, '.register' do
       before { parameters[:driver_options] = { key: :value } }
 
       it 'is used' do
-        expect(subject.driver_options).to eq(key: :value)
+        expect(base.driver_options).to eq(key: :value)
       end
     end
   end

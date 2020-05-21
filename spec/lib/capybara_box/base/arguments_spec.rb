@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CapybaraBox::Base, '.arguments' do
@@ -23,7 +25,7 @@ RSpec.describe CapybaraBox::Base, '.arguments' do
   end
 
   context 'when is chrome' do
-    let!(:parameters) { { browser: :chrome } }
+    let!(:parameters) { { browser: :selenium_chrome } }
 
     it 'receives the right arguments' do
       expect(subject.arguments).to eq chrome_family_arguments
@@ -39,14 +41,14 @@ RSpec.describe CapybaraBox::Base, '.arguments' do
   end
 
   context 'when is chrome headless' do
-    let!(:parameters) { { browser: :chrome_headless } }
+    let!(:parameters) { { browser: :selenium_chrome_headless } }
 
     it 'receives the right arguments' do
       expect(subject.arguments).to eq chrome_family_arguments
     end
 
     context 'when arguments is given' do
-      let!(:parameters) { { arguments: ['--custom'], browser: :chrome_headless } }
+      let!(:parameters) { { arguments: ['--custom'], browser: :selenium_chrome_headless } }
 
       it 'is used' do
         expect(subject.arguments).to eq ['--custom']
