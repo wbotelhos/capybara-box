@@ -18,17 +18,17 @@ module CapybaraBox
       end
 
       if options[:s3]
-        bucket_name = ENV.fetch('CAPYBARA_BOX__S3_BUCKET_NAME') { options[:s3][:bucket_name] }
-        region      = ENV.fetch('CAPYBARA_BOX__S3_REGION') { options[:s3][:region] }
+        bucket_name = ENV['CAPYBARA_BOX__S3_BUCKET_NAME']
+        region      = ENV['CAPYBARA_BOX__S3_REGION']
 
         Capybara::Screenshot.s3_configuration = {
           bucket_name: bucket_name,
           bucket_host: "#{bucket_name}.#{region}.amazonaws.com",
 
           s3_client_credentials: {
-            access_key_id: ENV.fetch('CAPYBARA_BOX__S3_ACCESS_KEY_ID') { options[:s3][:access_key_id] },
+            access_key_id: ENV['CAPYBARA_BOX__S3_ACCESS_KEY_ID'],
             region: region,
-            secret_access_key: ENV.fetch('CAPYBARA_BOX__S3_SECRET_ACCESS_KEY') { options[:s3][:secret_access_key] },
+            secret_access_key: ENV['CAPYBARA_BOX__S3_SECRET_ACCESS_KEY']
           },
         }
       end

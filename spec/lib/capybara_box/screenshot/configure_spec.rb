@@ -58,17 +58,15 @@ RSpec.describe CapybaraBox::Screenshot, '.configure(options, browser)' do
       described_class.configure(options, browser)
     end
 
-    context 'when s3 store is configured' do
-      before do
-        options[:s3] = {
-          access_key_id: 'access_key_id',
-          bucket_name: 'bucket_name',
-          region: 'us-east-1',
-          secret_access_key: 'secret_access_key',
-        }
-      end
-
+    context 'configures s3 via env' do
       it 'configures the s3 metadata' do
+        options[:s3] = true
+
+        ENV['CAPYBARA_BOX__S3_ACCESS_KEY_ID']     = 'access_key_id'
+        ENV['CAPYBARA_BOX__S3_BUCKET_NAME']       = 'bucket_name'
+        ENV['CAPYBARA_BOX__S3_REGION']            = 'us-east-1'
+        ENV['CAPYBARA_BOX__S3_SECRET_ACCESS_KEY'] = 'secret_access_key'
+
         described_class.configure(options, browser)
 
         expect(Capybara::Screenshot.s3_configuration).to eq(
@@ -81,6 +79,11 @@ RSpec.describe CapybaraBox::Screenshot, '.configure(options, browser)' do
             secret_access_key: 'secret_access_key',
           }
         )
+      ensure
+        ENV.delete('CAPYBARA_BOX__S3_ACCESS_KEY_ID')
+        ENV.delete('CAPYBARA_BOX__S3_BUCKET_NAME')
+        ENV.delete('CAPYBARA_BOX__S3_REGION')
+        ENV.delete('CAPYBARA_BOX__S3_SECRET_ACCESS_KEY')
       end
     end
   end
