@@ -70,7 +70,7 @@ module CapybaraBox
       @browser == :chrome_headless
     end
 
-    def configure
+    def configure_capybara
       Capybara.javascript_driver     = @browser
       Capybara.default_max_wait_time = @max_wait_time if @max_wait_time
     end
