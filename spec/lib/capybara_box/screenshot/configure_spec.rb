@@ -9,17 +9,29 @@ RSpec.describe CapybaraBox::Screenshot, '.configure(options, browser)' do
   context 'when enabled tag is false' do
     let!(:options) { { enabled: false } }
 
-    it { expect(described_class.configure(options, browser)).to eq nil }
+    it 'does not configure' do
+      expect(described_class.configure(options, browser)).to eq nil
+    end
   end
 
   context 'when enabled tag is "false"' do
     let!(:options) { { enabled: 'false' } }
 
-    it { expect(described_class.configure(options, browser)).to eq nil }
+    it 'does not configure' do
+      expect(described_class.configure(options, browser)).to eq nil
+    end
+  end
+
+  context 'when enabled as string' do
+    let!(:options) { { enabled: 'true' } }
+
+    it 'configures' do
+      expect(described_class.configure(options, browser).class).to eq Proc
+    end
   end
 
   context 'when enabled' do
-    let!(:options) { { enabled: true } }
+    let!(:options) { { enabled: 'true' } }
 
     it 'does not appends timestamp' do
       described_class.configure(options, browser)
@@ -58,9 +70,39 @@ RSpec.describe CapybaraBox::Screenshot, '.configure(options, browser)' do
       described_class.configure(options, browser)
     end
 
-    context 'configures s3 via env' do
-      it 'configures the s3 metadata' do
+    context 'when s3 options "false"' do
+      it 'does not configure' do
+        options[:s3] = 'false'
+
+        described_class.configure(options, browser)
+
+        expect(Capybara::Screenshot.s3_configuration).to eq({})
+      end
+    end
+
+    context 'when s3 options false' do
+      it 'does not configure' do
+        options[:s3] = false
+
+        described_class.configure(options, browser)
+
+        expect(Capybara::Screenshot.s3_configuration).to eq({})
+      end
+    end
+
+    context 'when s3 options true' do
+      it 'does not configure' do
         options[:s3] = true
+
+        described_class.configure(options, browser)
+
+        expect(Capybara::Screenshot.s3_configuration).not_to eq({})
+      end
+    end
+
+    context 'when s3 options is "true"' do
+      it 'configures credentials via env' do
+        options[:s3] = 'true'
 
         ENV['CAPYBARA_BOX__S3_ACCESS_KEY_ID']     = 'access_key_id'
         ENV['CAPYBARA_BOX__S3_BUCKET_NAME']       = 'bucket_name'

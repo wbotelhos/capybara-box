@@ -17,11 +17,11 @@ module CapybaraBox
         example.full_description.downcase.gsub('#', '--').tr ' ', '-'
       end
 
-      if options[:s3]
+      if ::CapybaraBox::Helper.true?(options[:s3])
         bucket_name = ENV['CAPYBARA_BOX__S3_BUCKET_NAME']
         region      = ENV['CAPYBARA_BOX__S3_REGION']
 
-        Capybara::Screenshot.s3_configuration = {
+        s3_configuration = {
           bucket_name: bucket_name,
           bucket_host: "#{bucket_name}.#{region}.amazonaws.com",
 
@@ -31,7 +31,11 @@ module CapybaraBox
             secret_access_key: ENV['CAPYBARA_BOX__S3_SECRET_ACCESS_KEY']
           },
         }
+      else
+        s3_configuration = {}
       end
+
+      Capybara::Screenshot.s3_configuration = s3_configuration
 
       Capybara::Screenshot.register_driver(browser_name) do |driver, path|
         driver.browser.save_screenshot(path)
