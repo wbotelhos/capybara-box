@@ -29,7 +29,7 @@ RSpec.describe CapybaraBox::Base, '.apply_arguments' do
 
       subject.apply_arguments
 
-      expect(subject.options.args).to eq Set['--argument', '--headless']
+      expect(subject.options.args).to eq Set['--argument', '--headless', '--no-sandbox', '--disable-gpu']
     end
   end
 end

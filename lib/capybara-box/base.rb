@@ -19,7 +19,11 @@ module CapybaraBox
     def apply_arguments
       arguments.each { |argument| add_argument(argument) }
 
-      add_argument('--headless') if chrome_headless?
+      if chrome_headless?
+        add_argument('--headless')
+        add_argument('--no-sandbox')
+        add_argument('--disable-gpu')
+      end
     end
 
     def apply_preferences
@@ -39,7 +43,9 @@ module CapybaraBox
       return [] unless chrome_family?
 
       %w[
+        --disable-background-networking
         --disable-default-apps
+        --disable-dev-shm-usage
         --disable-extensions
         --disable-infobars
         --disable-notifications
@@ -49,11 +55,20 @@ module CapybaraBox
         --disable-popup-blocking
         --disable-save-password-bubble
         --disable-site-isolation-trials
+        --disable-sync
         --disable-translate
+        --hide-scrollbars
         --incognito
+        --metrics-recording-only
         --mute-audio
         --no-default-browser-check
+        --no-first-run
+        --remote-debugging-address=0.0.0.0
+        --remote-debugging-port=9222
+        --safebrowsing-disable-auto-update
         --start-fullscreen
+        --user-data-dir=/tmp
+        --window-size=1920,1080
       ]
     end
 

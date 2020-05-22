@@ -7,7 +7,9 @@ RSpec.describe CapybaraBox::Base, '.arguments' do
 
   let!(:chrome_family_arguments) do
     %w[
+      --disable-background-networking
       --disable-default-apps
+      --disable-dev-shm-usage
       --disable-extensions
       --disable-infobars
       --disable-notifications
@@ -17,11 +19,20 @@ RSpec.describe CapybaraBox::Base, '.arguments' do
       --disable-popup-blocking
       --disable-save-password-bubble
       --disable-site-isolation-trials
+      --disable-sync
       --disable-translate
+      --hide-scrollbars
       --incognito
+      --metrics-recording-only
       --mute-audio
       --no-default-browser-check
+      --no-first-run
+      --remote-debugging-address=0.0.0.0
+      --remote-debugging-port=9222
+      --safebrowsing-disable-auto-update
       --start-fullscreen
+      --user-data-dir=/tmp
+      --window-size=1920,1080
     ]
   end
 
