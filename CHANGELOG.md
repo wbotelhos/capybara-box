@@ -1,3 +1,11 @@
+## v1.1.0
+
+- Fixes
+  - S3 config activation;
+
+- Update
+  - Adds more default arguments;
+
 ## v1.0.1
 
 - Fixes
