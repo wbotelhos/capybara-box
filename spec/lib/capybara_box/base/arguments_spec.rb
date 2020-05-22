@@ -27,11 +27,8 @@ RSpec.describe CapybaraBox::Base, '.arguments' do
       --mute-audio
       --no-default-browser-check
       --no-first-run
-      --remote-debugging-address=0.0.0.0
-      --remote-debugging-port=9222
       --safebrowsing-disable-auto-update
       --start-fullscreen
-      --user-data-dir=/tmp
       --window-size=1920,1080
     ]
   end
