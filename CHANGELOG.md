@@ -1,3 +1,8 @@
+## v1.1.1
+
+- Fixes
+  - Removes default args that was avoiding screen render.
+
 ## v1.1.0
 
 - Fixes
