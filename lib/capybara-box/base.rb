@@ -98,7 +98,7 @@ module CapybaraBox
       apply_arguments
       apply_preferences
 
-      apply_bin_path(@parameters[:bin_path]) if @parameters[:bin_path]
+      apply_bin_path(@parameters[:bin_path]) if ::CapybaraBox::Helper.present?(@parameters[:bin_path])
       apply_version(@parameters[:version])   if ::CapybaraBox::Helper.present?(@parameters[:version])
 
       ::CapybaraBox::Screenshot.configure(@parameters[:screenshot], @browser) if @parameters[:screenshot]

@@ -43,6 +43,30 @@ RSpec.describe CapybaraBox::Base, '#create' do
     end
   end
 
+  context 'when :bin_path is empty' do
+    let!(:parameters) { { bin_path: '' } }
+
+    it 'applies the bin path' do
+      allow(subject).to receive(:apply_bin_path)
+
+      base.create
+
+      expect(subject).not_to have_received(:apply_bin_path)
+    end
+  end
+
+  context 'when :bin_path is nil' do
+    let!(:parameters) { { bin_path: nil } }
+
+    it 'applies the bin path' do
+      allow(subject).to receive(:apply_bin_path)
+
+      base.create
+
+      expect(subject).not_to have_received(:apply_bin_path)
+    end
+  end
+
   context 'when :version is given' do
     let!(:parameters) { { version: '2.31' } }
 
