@@ -53,6 +53,30 @@ RSpec.describe CapybaraBox::Base, '#create' do
     end
   end
 
+  context 'when :version is empty' do
+    let!(:parameters) { { version: '' } }
+
+    it 'does not applies the version' do
+      allow(subject).to receive(:apply_version)
+
+      base.create
+
+      expect(subject).not_to have_received(:apply_version)
+    end
+  end
+
+  context 'when :version is nil' do
+    let!(:parameters) { { version: nil } }
+
+    it 'does not applies the version' do
+      allow(subject).to receive(:apply_version)
+
+      base.create
+
+      expect(subject).not_to have_received(:apply_version)
+    end
+  end
+
   context 'when :screenshot config is given' do
     let!(:parameters) { { browser: :chrome, screenshot: { key: 'value' } } }
 
