@@ -1,3 +1,9 @@
+## v1.1.2
+
+- Fixes
+  - Avoid apply blank bin path;
+  - Avoid apply blank version;
+
 ## v1.1.1
 
 - Fixes
