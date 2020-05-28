@@ -3,7 +3,7 @@
 require 'rails_helper'
 require 'capybara-screenshot'
 
-RSpec.describe CapybaraBox::Screenshot, '.configure(options, browser)' do
+RSpec.describe CapybaraBox::Screenshot, '.configure' do
   let!(:browser) { :selenium_chrome }
 
   context 'when enabled tag is false' do
