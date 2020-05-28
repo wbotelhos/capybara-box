@@ -5,7 +5,7 @@ module CapybaraBox
     module_function
 
     def blank?(value)
-      ['', nil].include?(value)
+      [''].include?(value.to_s.strip)
     end
 
     def present?(value)
