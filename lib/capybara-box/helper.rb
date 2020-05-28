@@ -9,7 +9,7 @@ module CapybaraBox
     end
 
     def present?(value)
-      !blank?
+      !blank?(value)
     end
 
     def true?(value)
