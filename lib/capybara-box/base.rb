@@ -175,7 +175,7 @@ module CapybaraBox
       Capybara.register_driver(name.to_sym) { |app| driver(app) }
     end
 
-    def self.configure(parameters)
+    def self.configure(parameters = {})
       new(parameters).tap(&:create)
     end
 
