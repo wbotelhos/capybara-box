@@ -30,6 +30,10 @@ CapybaraBox::Base.configure
 
 By default, `selenium_chrome` is the driver, but you can use `selenium_chrome_headless` and `selenium_firefox` or `selenium_firefox_headless` too.
 
+```ruby
+CapybaraBox::Base.configure(browser: :selenium_firefox)
+```
+
 ## Version
 
 The version is setted via `webdrivers`. You can specify the version:
