@@ -1,9 +1,10 @@
 # Capybara Box
 
-[![Build Status](https://travis-ci.org/wbotelhos/capybara-box.svg?branch=master)](https://travis-ci.org/wbotelhos/capybara-box)
-[![Maintainability](https://api.codeclimate.com/v1/badges/1b13dc12b03be63baaed/maintainability)](https://codeclimate.com/github/wbotelhos/capybara-box/maintainability)
+[![CI](https://github.com/wbotelhos/capybara-box/workflows/CI/badge.svg)](https://github.com/wbotelhos/capybara-box/actions)
 [![Gem Version](https://badge.fury.io/rb/capybara-box.svg)](https://badge.fury.io/rb/capybara-box)
-[![Patreon](https://img.shields.io/badge/donate-%3C3-brightgreen.svg)](https://www.patreon.com/wbotelhos)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f312587b4f126bb13e85/maintainability)](https://codeclimate.com/github/wbotelhos/capybara-box/maintainability)
+[![Coverage](https://codecov.io/gh/wbotelhos/capybara-box/branch/main/graph/badge.svg)](https://codecov.io/gh/wbotelhos/capybara-box)
+[![Sponsor](https://img.shields.io/badge/sponsor-%3C3-green)](https://www.patreon.com/wbotelhos)
 
 Configure Capybara with **Chrome**, **Chrome Headless**, **Firefox** and **Firefox Headless** with *Screenshot* feature without losing your mind.
 
