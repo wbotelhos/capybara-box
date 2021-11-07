@@ -1,60 +1,80 @@
-## v1.1.2
+# v1.2.0
 
-- Fixes
-  - Avoid apply blank bin path;
-  - Avoid apply blank version;
+## Updates
 
-## v1.1.1
+- Avoids deprecated Selenium `:options`;
 
-- Fixes
-  - Removes default args that was avoiding screen render.
+# v1.1.2
 
-## v1.1.0
+## Fixes
 
-- Fixes
-  - S3 config activation;
+- Avoid apply blank bin path;
+- Avoid apply blank version;
 
-- Update
-  - Adds more default arguments;
+# v1.1.1
 
-## v1.0.1
+## Fixes
 
-- Fixes
-  - Registers driver name as symbol;
+- Removes default args that was avoiding screen render.
 
-## v1.0.0
+# v1.1.0
 
-- Updates
-  - Updated default arguments;
-  - Spec files now is excluded from gem pack;
+## Fixes
 
-- Features
-  - Capybara `load_selenium` is called before startup;
-  - Screenshot S3 feature now is configure only via ENV;
-  - Using new gem `webdrivers`;
+- S3 config activation;
 
-- Fixes
-  - Fix screenshot upload;
+## Updates
 
-## v0.4.0
+- Adds more default arguments;
 
-- Updates Selenium WebDriver deprecated message;
+# v1.0.1
 
-## v0.3.0
+## Fixes
+
+- Registers driver name as symbol;
+
+# v1.0.0
+
+## Updates
+
+- Updated default arguments;
+- Spec files now is excluded from gem pack;
+
+## Features
+
+- Capybara `load_selenium` is called before startup;
+- Screenshot S3 feature now is configure only via ENV;
+- Using new gem `webdrivers`;
+
+## Fixes
+
+- Fix screenshot upload;
+
+# v0.4.0
+
+## Updates
+
+- Selenium WebDriver deprecated message;
+
+# v0.3.0
+
+## Updates
 
 - Drops Rack Session Access internal require;
 - Makes `chromedriver-helper` optional.
 
-## v0.2.1
+# v0.2.1
 
-- Fixes
-  - `chrome_headless` was being registered with wrong name.
+## Fixes
 
-## v0.2.0
+- `chrome_headless` was being registered with wrong name.
 
-- Features
-  - Add log feature for Chrome and Chrome Headless.
+# v0.2.0
 
-## v0.1.0
+## Features
 
-First release.
+- Add log feature for Chrome and Chrome Headless.
+
+# v0.1.0
+
+- First release.
