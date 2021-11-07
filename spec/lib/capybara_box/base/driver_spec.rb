@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.shared_context 'driver_with_options' do
   it 'creates the selenium driver with default options' do
     options = subject.driver_options

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe CapybaraBox::Base, '.apply_version' do
   subject(:base) { described_class.new parameters }
 

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.shared_context 'log_disabled' do
   context 'when is chrome' do
     before { parameters[:browser] = :selenium_chrome }

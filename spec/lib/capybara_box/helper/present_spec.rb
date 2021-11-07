@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe CapybaraBox::Helper, '.present?' do
   context 'when blank is true' do
     it 'returns the oposite' do

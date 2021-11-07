@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe CapybaraBox::Helper, '.blank?' do
   it { expect(described_class.blank?('  ')).to eq true }
   it { expect(described_class.blank?('')).to   eq true }

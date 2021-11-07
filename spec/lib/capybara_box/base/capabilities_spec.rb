@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe CapybaraBox::Base, '.capabilities' do
   subject { described_class.configure parameters }
 

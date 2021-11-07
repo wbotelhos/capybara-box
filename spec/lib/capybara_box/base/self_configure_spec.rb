@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe CapybaraBox::Base, '#configure' do
   let!(:parameters) { { key: :value } }
   let!(:box) { instance_double(described_class).as_null_object }

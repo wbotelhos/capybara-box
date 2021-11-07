@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe CapybaraBox::Base, '.http_client_options' do
   context 'when :http_client_options is not given' do
     subject { described_class.new }

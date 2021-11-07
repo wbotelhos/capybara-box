@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe CapybaraBox::Base, '.http_client' do
   before do
     allow(Selenium::WebDriver::Remote::Http::Default).to receive(:new)

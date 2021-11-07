@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
 require 'capybara-screenshot'
 
 RSpec.describe CapybaraBox::Screenshot, '.configure' do
