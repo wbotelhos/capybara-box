@@ -9,11 +9,11 @@ module CapybaraBox
     end
 
     def add_argument(value)
-      options&.add_argument(value)
+      capabilities&.add_argument(value)
     end
 
     def add_preference(key, value)
-      options&.add_preference(key, value)
+      capabilities&.add_preference(key, value)
     end
 
     def apply_arguments
@@ -23,6 +23,14 @@ module CapybaraBox
         add_argument('--headless')
         add_argument('--no-sandbox')
         add_argument('--disable-gpu')
+      end
+    end
+
+    def apply_bin_path(path)
+      if firefox?
+        ::Selenium::WebDriver::Firefox.path = path
+
+        ::Selenium::WebDriver::Firefox.path
       end
     end
 
@@ -86,12 +94,8 @@ module CapybaraBox
       Capybara.default_max_wait_time = @max_wait_time if @max_wait_time
     end
 
-    def apply_bin_path(path)
-      if firefox?
-        ::Selenium::WebDriver::Firefox::Binary.path = path
-
-        ::Selenium::WebDriver::Firefox::Binary.path
-      end
+    def capabilities
+      @capabilities ||= ::Selenium::WebDriver::Chrome::Options.new if chrome_family?
     end
 
     def create
@@ -109,8 +113,8 @@ module CapybaraBox
     end
 
     def driver(app)
-      opts           = {}
-      opts[:options] = options if chrome_family?
+      opts                = {}
+      opts[:capabilities] = capabilities if chrome_family?
 
       Capybara::Selenium::Driver.load_selenium
 
@@ -152,10 +156,6 @@ module CapybaraBox
 
     def http_client
       @http_client ||= ::Selenium::WebDriver::Remote::Http::Default.new(**http_client_options)
-    end
-
-    def options
-      @options ||= ::Selenium::WebDriver::Chrome::Options.new if chrome_family?
     end
 
     def preferences

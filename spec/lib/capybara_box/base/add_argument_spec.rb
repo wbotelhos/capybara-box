@@ -11,7 +11,7 @@ RSpec.describe CapybaraBox::Base, '.add_argument' do
     it 'adds the argument' do
       base.add_argument '--argument'
 
-      expect(base.options.args).to eq Set['--argument']
+      expect(base.capabilities.args).to eq ['--argument']
     end
   end
 
@@ -21,7 +21,7 @@ RSpec.describe CapybaraBox::Base, '.add_argument' do
     it 'adds the argument' do
       base.add_argument '--argument'
 
-      expect(base.options.args).to eq Set['--argument']
+      expect(base.capabilities.args).to eq ['--argument']
     end
   end
 
@@ -31,7 +31,7 @@ RSpec.describe CapybaraBox::Base, '.add_argument' do
     it 'does not applies options' do
       base.add_argument '--argument'
 
-      expect(base.options).to eq nil
+      expect(base.capabilities).to eq nil
     end
   end
 end

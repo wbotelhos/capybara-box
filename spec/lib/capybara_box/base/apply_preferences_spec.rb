@@ -13,11 +13,11 @@ RSpec.describe CapybaraBox::Base, '.apply_preferences' do
     let!(:parameters) { { browser: :selenium_chrome } }
 
     it 'applies' do
-      expect(subject.options.prefs).to eq({})
+      expect(subject.capabilities.prefs).to eq({})
 
       subject.apply_preferences
 
-      expect(subject.options.prefs).to eq(key: :value)
+      expect(subject.capabilities.prefs).to eq(key: :value)
     end
   end
 
@@ -25,21 +25,21 @@ RSpec.describe CapybaraBox::Base, '.apply_preferences' do
     let!(:parameters) { { browser: :selenium_chrome_headless } }
 
     it 'applies' do
-      expect(subject.options.prefs).to eq({})
+      expect(subject.capabilities.prefs).to eq({})
 
       subject.apply_preferences
 
-      expect(subject.options.prefs).to eq(key: :value)
+      expect(subject.capabilities.prefs).to eq(key: :value)
     end
   end
 
   context 'when is firefox' do
     let!(:parameters) { { browser: :firefox } }
 
-    it 'does not applies options' do
+    it 'does not applies capabilities' do
       subject.apply_preferences
 
-      expect(subject.options).to eq nil
+      expect(subject.capabilities).to eq nil
     end
   end
 end

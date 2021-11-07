@@ -6,18 +6,18 @@ RSpec.describe CapybaraBox::Base, '.apply_arguments' do
   subject { described_class.new parameters }
 
   before do
-    allow(subject).to receive(:arguments) { Set['--argument'] }
+    allow(subject).to receive(:arguments) { ['--argument'] }
   end
 
   context 'when is not chrome' do
     let!(:parameters) { { browser: :selenium_chrome } }
 
     it 'applies' do
-      expect(subject.options.args).to eq Set.new
+      expect(subject.capabilities.args).to eq []
 
       subject.apply_arguments
 
-      expect(subject.options.args).to eq Set['--argument']
+      expect(subject.capabilities.args).to eq ['--argument']
     end
   end
 
@@ -25,11 +25,11 @@ RSpec.describe CapybaraBox::Base, '.apply_arguments' do
     let!(:parameters) { { browser: :selenium_chrome_headless } }
 
     it 'applies' do
-      expect(subject.options.args).to eq Set.new
+      expect(subject.capabilities.args).to eq []
 
       subject.apply_arguments
 
-      expect(subject.options.args).to eq Set['--argument', '--headless', '--no-sandbox', '--disable-gpu']
+      expect(subject.capabilities.args).to eq ['--argument', '--headless', '--no-sandbox', '--disable-gpu']
     end
   end
 end
