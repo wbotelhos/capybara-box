@@ -2,6 +2,8 @@
 
 ENV['RAILS_ENV'] ||= 'test'
 
+require 'support/coverage'
+
 require 'capybara'
 require 'capybara-box'
 require 'pry-byebug'

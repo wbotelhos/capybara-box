@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'selenium-webdriver'
   spec.add_dependency 'webdrivers'
 
+  spec.add_development_dependency 'codecov'
   spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
