@@ -120,7 +120,7 @@ module CapybaraBox
 
       opts[:http_client] = http_client if ::CapybaraBox::Helper.true?(ENV['CI'])
 
-      Capybara::Selenium::Driver.new(app, opts.merge(driver_options))
+      Capybara::Selenium::Driver.new(app, **opts.merge(driver_options))
     end
 
     def driver_options
