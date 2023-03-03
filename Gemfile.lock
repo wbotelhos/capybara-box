@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    capybara-box (1.2.0)
+    capybara-box (2.0.0)
       capybara
       capybara-screenshot
       selenium-webdriver
@@ -40,6 +40,8 @@ GEM
     mini_portile2 (2.8.1)
     nokogiri (1.14.2)
       mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
+    nokogiri (1.14.2-arm64-darwin)
       racc (~> 1.4)
     parallel (1.22.1)
     parser (3.2.1.0)
@@ -114,6 +116,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  arm64-darwin-22
   ruby
 
 DEPENDENCIES
