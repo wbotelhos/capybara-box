@@ -124,21 +124,10 @@ You can override all driver options:
 CapybaraBox.configure(driver_options: { clear_local_storage: true })
 ```
 
-## Log
+## Logger
 
-Log is writen at `log/capybara-box.log` as default.
-You can see each command executed. Time spent between them and debug some hanging command. :tada:
+Logs are writen as WARN on the `STDOUT` by default. You can change it:
 
 ```ruby
-CapybaraBox.configure(log: true)
-```
-
-```
-[15.479][INFO]: RESPONSE Navigate
-[15.482][INFO]: COMMAND ExecuteScript {
-   "args": [  ],
-   "script": "return $(\".gridy\").data(\"ready\")"
-}
-[15.483][INFO]: Waiting for pending navigations...
-[15.545][INFO]: Done waiting for pending navigations. Status: ok
+CapybaraBox.configure(logger: { level: :debug, output: 'log/selenium.log' })
 ```

@@ -106,6 +106,7 @@ module CapybaraBox
       register(@browser)
 
       configure_capybara
+      configure_logger(@parameters[:logger]) if logger?
     end
 
     def driver(app)
@@ -127,12 +128,6 @@ module CapybaraBox
         clear_local_storage: true,
         clear_session_storage: true,
       }
-
-      if log? && chrome_family?
-        opts[:service] = ::Selenium::WebDriver::Service.chrome(
-          args: { log_path: 'log/capybara-box.log', verbose: true }
-        )
-      end
 
       opts
     end
@@ -181,10 +176,14 @@ module CapybaraBox
 
     private
 
-    def log?
-      return true if @parameters[:log].nil?
+    # https://www.selenium.dev/documentation/webdriver/troubleshooting/logging/#ruby
+    def configure_logger(options)
+      Selenium::WebDriver.logger.level = options.fetch(:level, :warn)
+      Selenium::WebDriver.logger.output = options.fetch(:output, 'selenium.log')
+    end
 
-      ::CapybaraBox::Helper.true?(@parameters[:log])
+    def logger?
+      @parameters.key?(:logger)
     end
   end
 end

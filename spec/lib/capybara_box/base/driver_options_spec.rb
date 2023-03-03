@@ -4,11 +4,6 @@ RSpec.describe CapybaraBox::Base, '.register' do
   subject(:base) { described_class.new parameters }
 
   let!(:args) { { log_path: 'log/capybara-box.log', verbose: true } }
-  let!(:service) { instance_double 'Selenium::WebDriver::Service' }
-
-  before do
-    allow(Selenium::WebDriver::Service).to receive(:chrome).with(args: args).and_return service
-  end
 
   context 'when is chrome' do
     let!(:parameters) { { browser: :selenium_chrome } }
@@ -17,8 +12,7 @@ RSpec.describe CapybaraBox::Base, '.register' do
       expect(base.driver_options).to eq(
         browser: :chrome,
         clear_local_storage: true,
-        clear_session_storage: true,
-        service: service
+        clear_session_storage: true
       )
     end
 
@@ -38,8 +32,7 @@ RSpec.describe CapybaraBox::Base, '.register' do
       expect(base.driver_options).to eq(
         browser: :chrome,
         clear_local_storage: true,
-        clear_session_storage: true,
-        service: service
+        clear_session_storage: true
       )
     end
 

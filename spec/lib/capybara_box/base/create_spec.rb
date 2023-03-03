@@ -140,4 +140,47 @@ RSpec.describe CapybaraBox::Base, '#create' do
       end
     end
   end
+
+  describe 'logger' do
+    before do
+      @level = Selenium::WebDriver.logger.level
+      @output = Selenium::WebDriver.logger.io
+    end
+
+    after do
+      Selenium::WebDriver.logger.level = @level
+      Selenium::WebDriver.logger.output = @output
+    end
+
+    context 'when logger is enabled' do
+      context 'when options is provided' do
+        it 'uses the given params' do
+          CapybaraBox::Base
+            .new(browser: :selenium_chrome, logger: { level: :debug, output: 'custom.log' })
+            .create
+
+          expect(Selenium::WebDriver.logger.debug?).to be(true)
+          expect(Selenium::WebDriver.logger.io.path).to eq('custom.log')
+        end
+      end
+
+      context 'when options is provided' do
+        it 'uses default values' do
+          CapybaraBox::Base.new(browser: :selenium_chrome, logger: {}).create
+
+          expect(Selenium::WebDriver.logger.warn?).to be(true)
+          expect(Selenium::WebDriver.logger.io.path).to eq('selenium.log')
+        end
+      end
+
+      context 'when options is not provided' do
+        it 'uses warn level on stdout' do
+          CapybaraBox::Base.new(browser: :selenium_chrome).create
+
+          expect(Selenium::WebDriver.logger.warn?).to be(true)
+          expect(Selenium::WebDriver.logger.io.path).to eq('<STDOUT>')
+        end
+      end
+    end
+  end
 end

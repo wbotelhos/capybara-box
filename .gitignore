@@ -1,6 +1,7 @@
 .byebug_history
 .DS_Store
 *.gem
+*.log
 /.bundle
 /coverage
 /vendor
