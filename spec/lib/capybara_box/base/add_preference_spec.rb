@@ -9,7 +9,7 @@ RSpec.describe CapybaraBox::Base, '.add_preference' do
     it 'adds the argument' do
       subject.add_preference :key, :value
 
-      expect(subject.capabilities.prefs).to eq(key: :value)
+      expect(subject.options.prefs).to eq(key: :value)
     end
   end
 
@@ -19,7 +19,7 @@ RSpec.describe CapybaraBox::Base, '.add_preference' do
     it 'adds the argument' do
       subject.add_preference :key, :value
 
-      expect(subject.capabilities.prefs).to eq(key: :value)
+      expect(subject.options.prefs).to eq(key: :value)
     end
   end
 
@@ -29,7 +29,7 @@ RSpec.describe CapybaraBox::Base, '.add_preference' do
     it 'does not applies options' do
       subject.add_preference :key, :value
 
-      expect(subject.capabilities).to eq nil
+      expect(subject.options).to eq nil
     end
   end
 end

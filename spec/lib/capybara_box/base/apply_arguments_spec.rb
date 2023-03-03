@@ -11,11 +11,11 @@ RSpec.describe CapybaraBox::Base, '.apply_arguments' do
     let!(:parameters) { { browser: :selenium_chrome } }
 
     it 'applies' do
-      expect(subject.capabilities.args).to eq []
+      expect(subject.options.args).to eq []
 
       subject.apply_arguments
 
-      expect(subject.capabilities.args).to eq ['--argument']
+      expect(subject.options.args).to eq ['--argument']
     end
   end
 
@@ -23,11 +23,11 @@ RSpec.describe CapybaraBox::Base, '.apply_arguments' do
     let!(:parameters) { { browser: :selenium_chrome_headless } }
 
     it 'applies' do
-      expect(subject.capabilities.args).to eq []
+      expect(subject.options.args).to eq []
 
       subject.apply_arguments
 
-      expect(subject.capabilities.args).to eq ['--argument', '--headless', '--no-sandbox', '--disable-gpu']
+      expect(subject.options.args).to eq ['--argument', '--headless', '--no-sandbox', '--disable-gpu']
     end
   end
 end

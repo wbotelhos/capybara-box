@@ -3,7 +3,7 @@
 RSpec.shared_context 'driver_with_options' do
   it 'creates the selenium driver with default options' do
     options = subject.driver_options
-    options[:capabilities] = subject.capabilities
+    options[:options] = subject.options
 
     expect(Capybara::Selenium::Driver).to receive(:load_selenium)
     expect(Capybara::Selenium::Driver).to receive(:new).with(:app, options)
@@ -26,7 +26,7 @@ end
 RSpec.shared_context 'driver_with_options_and_http_client' do
   it 'adds http client options' do
     options               = subject.driver_options
-    options[:capabilities]     = subject.capabilities
+    options[:options]     = subject.options
     options[:http_client] = subject.http_client
 
     expect(Capybara::Selenium::Driver).to receive(:load_selenium)
